@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>月泉国乐馆 | 传承千年雅韵</title>
-<meta name="description" content="月泉国乐馆 — 专业民族音乐教育，传承千年雅韵">
+<title>月泉国乐馆 | 广州专业民族音乐教育 - 免费试听</title>
+<meta name="description" content="月泉国乐馆 — 广州专业民族音乐教育机构，10+专业教师，8种乐器课程，500+在读学员。免费试听，因材施教，考级比赛成绩优异。">
+<meta name="keywords" content="广州二胡培训,广州古筝培训,广州琵琶培训,民族音乐教育,月泉国乐馆">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
@@ -26,6 +27,8 @@
   --ink: #1a1a1a;
   --ink-light: #2c2c2c;
   --mist: rgba(245, 240, 232, 0.08);
+  --success: #4ade80;
+  --white: #ffffff;
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -63,12 +66,6 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ===== PARTICLE CANVAS ===== */
-#particles {
-  position: fixed; inset: 0; z-index: 0;
-  pointer-events: none;
-}
-
 /* ===== NAVIGATION ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -89,169 +86,215 @@ body {
   text-decoration: none;
   letter-spacing: 0.1em;
 }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: var(--cream);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 300;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   position: relative;
   transition: color 0.3s;
 }
-.nav-links a::after {
-  content: ''; position: absolute;
-  bottom: -4px; left: 0; width: 0; height: 1px;
-  background: var(--gold);
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 .nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-toggle {
-  display: none; background: none; border: none;
-  cursor: pointer; padding: 0.5rem;
-}
-.nav-toggle span {
-  display: block; width: 24px; height: 1.5px;
-  background: var(--cream); margin: 6px 0;
+.nav-cta {
+  background: var(--gold);
+  color: var(--deep-teal);
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
   transition: all 0.3s;
 }
+.nav-cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(196, 163, 90, 0.4);
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO ===== */
 .hero {
-  position: relative; height: 100vh; min-height: 700px;
-  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
+  padding: 6rem 2rem 4rem;
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: 
-    radial-gradient(ellipse at 20% 50%, rgba(26, 107, 90, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(196, 163, 90, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(58, 155, 140, 0.2) 0%, transparent 50%),
-    var(--deep-teal);
+  background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal) 50%, var(--jade) 100%);
 }
-.hero-mountains {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 40%; opacity: 0.15;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 400'%3E%3Cpath fill='%231a6b5a' d='M0,400 L0,280 Q100,200 200,250 Q350,150 500,200 Q600,100 720,180 Q850,80 960,160 Q1100,60 1200,140 Q1300,100 1440,180 L1440,400 Z'/%3E%3Cpath fill='%230d3b3b' d='M0,400 L0,320 Q150,260 300,300 Q450,220 600,280 Q750,200 900,260 Q1050,180 1200,240 Q1350,200 1440,260 L1440,400 Z'/%3E%3C/svg%3E") center bottom / cover no-repeat;
+.hero-pattern {
+  position: absolute; inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(58, 155, 140, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(196, 163, 90, 0.1) 0%, transparent 50%);
 }
 .hero-content {
-  position: relative; z-index: 2;
+  position: relative;
+  z-index: 2;
   text-align: center;
-  animation: heroFadeIn 2s ease-out 0.5s both;
+  max-width: 900px;
 }
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(196, 163, 90, 0.15);
+  border: 1px solid rgba(196, 163, 90, 0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease;
 }
-.hero-subtitle-top {
-  font-family: 'ZCOOL XiaoWei', serif;
-  font-size: 1rem;
-  letter-spacing: 0.8em;
-  color: var(--gold-light);
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
+.hero-badge::before {
+  content: '🎵';
 }
-.hero-title {
+.hero h1 {
   font-family: 'Ma Shan Zheng', cursive;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: var(--cream);
   line-height: 1.2;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 0 80px rgba(196, 163, 90, 0.3);
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease 0.2s both;
 }
-.hero-title .accent {
+.hero h1 span {
   color: var(--gold);
-  display: block;
-  font-size: 0.5em;
-  letter-spacing: 0.3em;
-  margin-top: 0.5rem;
 }
-.hero-divider {
-  width: 80px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 2rem auto;
-}
-.hero-desc {
-  font-size: 1.1rem;
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--gold-pale);
+  margin-bottom: 2.5rem;
   font-weight: 300;
-  color: var(--cream);
-  opacity: 0.7;
-  letter-spacing: 0.2em;
-  max-width: 500px;
-  margin: 0 auto 3rem;
+  letter-spacing: 0.1em;
+  animation: fadeInUp 1s ease 0.4s both;
 }
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 0.8rem;
-  padding: 1rem 2.5rem;
-  border: 1px solid var(--gold);
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--gold);
-  text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  line-height: 1;
 }
-.hero-cta::before {
-  content: ''; position: absolute; inset: 0;
+.hero-stat-label {
+  font-size: 0.85rem;
+  color: var(--cream);
+  opacity: 0.8;
+  margin-top: 0.3rem;
+}
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+.btn-primary {
   background: var(--gold);
-  transform: translateX(-101%);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hero-cta:hover::before { transform: translateX(0); }
-.hero-cta:hover { color: var(--deep-teal); }
-.hero-cta span { position: relative; z-index: 1; }
-.hero-scroll {
-  position: absolute; bottom: 3rem; left: 50%;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center;
+  color: var(--deep-teal);
+  padding: 1rem 2.5rem;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  animation: scrollBounce 2s ease-in-out infinite;
+  border: none;
+  cursor: pointer;
 }
-.hero-scroll span {
-  font-size: 0.7rem; letter-spacing: 0.3em;
-  color: var(--gold-light); opacity: 0.6;
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(196, 163, 90, 0.4);
 }
-.hero-scroll-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
+.btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  padding: 1rem 2.5rem;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid rgba(245, 240, 232, 0.3);
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
 }
-@keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(10px); }
+.btn-secondary:hover {
+  background: rgba(245, 240, 232, 0.1);
+  border-color: var(--cream);
+}
+.hero-trust {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(245, 240, 232, 0.1);
+  animation: fadeInUp 1s ease 1s both;
+}
+.hero-trust-text {
+  font-size: 0.85rem;
+  color: var(--cream);
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+.hero-trust-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--gold-pale);
+  opacity: 0.8;
 }
 
-/* ===== FLOATING INK ELEMENTS ===== */
-.ink-float {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.08;
-  animation: inkFloat 20s ease-in-out infinite;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-@keyframes inkFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -20px) scale(1.1); }
-  50% { transform: translate(-20px, 30px) scale(0.9); }
-  75% { transform: translate(20px, 20px) scale(1.05); }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== SECTION COMMON ===== */
-section { position: relative; z-index: 1; }
-.section-pad { padding: 8rem 3rem; }
+/* ===== SECTIONS ===== */
+section {
+  padding: 6rem 2rem;
+  position: relative;
+}
 .section-header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
-.section-num {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 4rem;
+.section-label {
+  font-size: 0.8rem;
   color: var(--gold);
-  opacity: 0.3;
-  line-height: 1;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
   margin-bottom: 1rem;
 }
 .section-title {
@@ -260,425 +303,577 @@ section { position: relative; z-index: 1; }
   color: var(--cream);
   margin-bottom: 1rem;
 }
-.section-line {
-  width: 60px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 0 auto 1.5rem;
-}
 .section-subtitle {
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: 1rem;
   color: var(--cream);
-  opacity: 0.5;
-  letter-spacing: 0.3em;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
 }
-
-/* ===== ABOUT SECTION ===== */
-.about {
-  background: linear-gradient(180deg, var(--deep-teal) 0%, var(--teal) 100%);
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  align-items: center;
-}
-.about-image-wrap {
-  position: relative;
-}
-.about-image-wrap::before {
-  content: '';
-  position: absolute;
-  top: -20px; left: -20px; right: 20px; bottom: 20px;
-  border: 1px solid var(--gold);
-  opacity: 0.3;
-  transition: all 0.6s;
-}
-.about-image-wrap:hover::before {
-  top: -10px; left: -10px;
-}
-.about-image {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  filter: grayscale(20%) contrast(1.05);
-  transition: filter 0.6s;
-}
-.about-image-wrap:hover .about-image {
-  filter: grayscale(0%) contrast(1.1);
-}
-.about-text h3 {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 2rem;
-  color: var(--gold);
-  margin-bottom: 2rem;
-}
-.about-text p {
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--cream);
-  opacity: 0.8;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-}
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(196, 163, 90, 0.2);
-}
-.stat-num {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 2.5rem;
-  color: var(--gold);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--cream);
-  opacity: 0.5;
-  margin-top: 0.5rem;
-  letter-spacing: 0.1em;
 }
 
-/* ===== TEACHERS SECTION ===== */
-.teachers {
+/* ===== TRUST BAR ===== */
+.trust-bar {
   background: var(--teal);
-  overflow: hidden;
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(196, 163, 90, 0.2);
+  border-bottom: 1px solid rgba(196, 163, 90, 0.2);
 }
-.teachers-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1400px;
+.trust-grid {
+  max-width: 1000px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+.trust-item-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+.trust-item-label {
+  font-size: 0.85rem;
+  color: var(--cream);
+  opacity: 0.8;
+  margin-top: 0.3rem;
+}
+
+/* ===== TEACHERS ===== */
+.teachers-section {
+  background: linear-gradient(180deg, var(--deep-teal) 0%, var(--teal) 100%);
 }
 .teacher-card {
-  position: relative;
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.15);
+  border-radius: 1rem;
   overflow: hidden;
-  cursor: pointer;
-  group: true;
+  transition: all 0.4s;
+  margin-bottom: 2rem;
 }
-.teacher-card-img {
-  width: 100%;
+.teacher-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.teacher-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.teacher-image {
   aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.teacher-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.6s;
-  filter: brightness(0.85);
+  transition: transform 0.6s;
 }
-.teacher-card:hover .teacher-card-img {
+.teacher-card:hover .teacher-image img {
   transform: scale(1.05);
-  filter: brightness(1);
 }
-.teacher-card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10, 46, 46, 0.95) 0%, rgba(10, 46, 46, 0.3) 40%, transparent 70%);
-  display: flex; flex-direction: column;
-  justify-content: flex-end;
+.teacher-info {
   padding: 2rem;
-  transition: background 0.5s;
-}
-.teacher-card:hover .teacher-card-overlay {
-  background: linear-gradient(to top, rgba(10, 46, 46, 0.98) 0%, rgba(10, 46, 46, 0.5) 50%, transparent 80%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .teacher-name {
   font-family: 'Ma Shan Zheng', cursive;
   font-size: 1.8rem;
-  color: var(--cream);
+  color: var(--gold);
   margin-bottom: 0.3rem;
 }
 .teacher-instrument {
-  font-size: 0.85rem;
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--malachite-light);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+.teacher-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.teacher-tag {
+  background: rgba(196, 163, 90, 0.15);
+  color: var(--gold-pale);
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
 }
 .teacher-bio {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--cream);
+  opacity: 0.9;
+}
+.teacher-achievements {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 240, 232, 0.1);
+}
+.teacher-achievement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.85rem;
-  color: var(--cream);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1.6;
-  font-weight: 300;
-}
-.teacher-card:hover .teacher-bio {
-  opacity: 0.7;
-  transform: translateY(0);
-}
-.teacher-card-line {
-  width: 30px; height: 1px;
-  background: var(--gold);
-  margin-bottom: 1rem;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.teacher-card:hover .teacher-card-line {
-  transform: scaleX(1);
-}
-
-/* ===== INSTRUMENTS SECTION ===== */
-.instruments {
-  background: linear-gradient(180deg, var(--teal) 0%, var(--deep-teal) 100%);
-}
-.instruments-showcase {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.instrument-item {
-  position: relative;
-  padding: 3rem 2rem;
-  text-align: center;
-  border: 1px solid rgba(196, 163, 90, 0.1);
-  transition: all 0.5s;
-  cursor: default;
-}
-.instrument-item:hover {
-  background: rgba(196, 163, 90, 0.05);
-  border-color: rgba(196, 163, 90, 0.3);
-}
-.instrument-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  display: block;
-  transition: transform 0.5s;
-}
-.instrument-item:hover .instrument-icon {
-  transform: scale(1.1);
-}
-.instrument-name {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 1.5rem;
-  color: var(--cream);
+  color: var(--gold-pale);
   margin-bottom: 0.5rem;
 }
-.instrument-en {
-  font-size: 0.75rem;
-  color: var(--gold);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.teacher-achievement::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* ===== ACHIEVEMENTS ===== */
+.achievements-section {
+  background: var(--deep-teal);
+}
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.achievement-card {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s;
+}
+.achievement-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+.achievement-icon {
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
-.instrument-desc {
+.achievement-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.achievement-label {
+  font-size: 0.9rem;
+  color: var(--cream);
+  opacity: 0.8;
+}
+.achievement-detail {
+  font-size: 0.8rem;
+  color: var(--gold-pale);
+  margin-top: 0.5rem;
+  opacity: 0.7;
+}
+
+/* ===== COURSES & PRICING ===== */
+.courses-section {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--deep-teal) 100%);
+}
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.course-card {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.4s;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  background: rgba(245, 240, 232, 0.05);
+}
+.course-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.course-name {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.course-english {
+  font-size: 0.75rem;
+  color: var(--malachite-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+.course-desc {
+  font-size: 0.9rem;
+  color: var(--cream);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Pricing */
+.pricing-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.pricing-title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s;
+  position: relative;
+}
+.pricing-card.featured {
+  border-color: var(--gold);
+  background: rgba(196, 163, 90, 0.08);
+}
+.pricing-card.featured::before {
+  content: '推荐';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--deep-teal);
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.pricing-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+.pricing-name {
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+.pricing-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.pricing-unit {
   font-size: 0.85rem;
   color: var(--cream);
-  opacity: 0.5;
-  line-height: 1.6;
-  font-weight: 300;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+.pricing-features {
+  list-style: none;
+  text-align: left;
+}
+.pricing-features li {
+  font-size: 0.85rem;
+  color: var(--cream);
+  opacity: 0.8;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: bold;
 }
 
-/* ===== GALLERY SECTION ===== */
-.gallery {
+/* ===== ENVIRONMENT ===== */
+.environment-section {
   background: var(--deep-teal);
-  padding: 8rem 0;
 }
-.gallery-masonry {
-  columns: 3;
-  column-gap: 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 3rem;
+.env-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
-  position: relative;
+.env-item {
+  aspect-ratio: 4/3;
+  border-radius: 0.5rem;
   overflow: hidden;
+  position: relative;
   cursor: pointer;
 }
-.gallery-item img {
+.env-item img {
   width: 100%;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
 }
-.gallery-item:hover img {
-  transform: scale(1.03);
+.env-item:hover img {
+  transform: scale(1.1);
 }
-.gallery-item::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(10, 46, 46, 0.6), transparent);
+.env-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 46, 46, 0.8) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
-.gallery-item:hover::after { opacity: 1; }
+.env-item:hover .env-item-overlay {
+  opacity: 1;
+}
+.env-item-label {
+  color: var(--cream);
+  font-size: 0.9rem;
+}
 
 /* ===== TESTIMONIALS ===== */
-.testimonials {
-  background: linear-gradient(180deg, var(--deep-teal), var(--teal));
+.testimonials-section {
+  background: linear-gradient(180deg, var(--deep-teal) 0%, var(--teal) 100%);
 }
-.testimonials-track {
-  display: flex;
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 2rem 0;
-  scrollbar-width: none;
 }
-.testimonials-track::-webkit-scrollbar { display: none; }
 .testimonial-card {
-  min-width: 380px;
-  scroll-snap-align: start;
-  padding: 3rem;
+  background: rgba(245, 240, 232, 0.03);
   border: 1px solid rgba(196, 163, 90, 0.15);
-  background: rgba(13, 59, 59, 0.5);
-  backdrop-filter: blur(10px);
-  position: relative;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.4s;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
 }
 .testimonial-quote {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--gold);
   opacity: 0.3;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: -1rem;
 }
 .testimonial-text {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
   color: var(--cream);
-  opacity: 0.8;
-  font-weight: 300;
-  margin-bottom: 2rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
   font-style: italic;
 }
 .testimonial-author {
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--jade);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
   color: var(--gold);
-  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.testimonial-name {
+  font-weight: 500;
+  color: var(--gold);
 }
 .testimonial-role {
   font-size: 0.8rem;
   color: var(--cream);
-  opacity: 0.4;
-  margin-top: 0.3rem;
+  opacity: 0.6;
+}
+.testimonial-stars {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
 }
 
-/* ===== CONTACT SECTION ===== */
-.contact {
-  background: var(--teal);
-  position: relative;
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--jade) 0%, var(--deep-teal) 100%);
+  text-align: center;
+  padding: 5rem 2rem;
 }
-.contact::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(26, 107, 90, 0.2), transparent 60%);
+.cta-title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+.cta-subtitle {
+  font-size: 1.1rem;
+  color: var(--gold-pale);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* ===== CONTACT ===== */
+.contact-section {
+  background: var(--deep-teal);
 }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  position: relative;
+  gap: 3rem;
 }
-.contact-info h3 {
-  font-family: 'Ma Shan Zheng', cursive;
-  font-size: 2rem;
-  color: var(--gold);
-  margin-bottom: 2rem;
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .contact-item {
-  display: flex; align-items: flex-start; gap: 1rem;
-  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 .contact-icon {
-  width: 40px; height: 40px;
-  border: 1px solid rgba(196, 163, 90, 0.3);
-  display: flex; align-items: center; justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(196, 163, 90, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
   flex-shrink: 0;
-  font-size: 1.2rem;
 }
 .contact-label {
   font-size: 0.8rem;
   color: var(--gold);
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   margin-bottom: 0.3rem;
 }
 .contact-value {
   font-size: 1rem;
   color: var(--cream);
-  opacity: 0.8;
-  font-weight: 300;
 }
-.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
-.form-group { position: relative; }
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 1rem 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(196, 163, 90, 0.3);
-  color: var(--cream);
-  font-family: 'Noto Serif SC', serif;
-  font-size: 1rem;
-  font-weight: 300;
-  outline: none;
-  transition: border-color 0.3s;
+.contact-qr {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
 }
-.form-group input:focus,
-.form-group textarea:focus {
-  border-bottom-color: var(--gold);
-}
-.form-group label {
-  position: absolute;
-  top: 1rem; left: 0;
+.contact-qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: var(--white);
+  border-radius: 0.5rem;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
   font-size: 0.9rem;
+}
+.contact-qr-label {
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+
+/* Form */
+.contact-form {
+  background: rgba(245, 240, 232, 0.03);
+  border: 1px solid rgba(196, 163, 90, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.form-title {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-label {
+  display: block;
+  font-size: 0.85rem;
   color: var(--cream);
-  opacity: 0.4;
-  pointer-events: none;
+  margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(245, 240, 232, 0.05);
+  border: 1px solid rgba(245, 240, 232, 0.15);
+  border-radius: 0.5rem;
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 0.9rem;
   transition: all 0.3s;
 }
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label {
-  top: -0.8rem;
-  font-size: 0.75rem;
-  color: var(--gold);
-  opacity: 1;
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(245, 240, 232, 0.08);
 }
-.form-group textarea { resize: vertical; min-height: 100px; }
+.form-input::placeholder {
+  color: rgba(245, 240, 232, 0.4);
+}
+textarea.form-input {
+  min-height: 100px;
+  resize: vertical;
+}
 .form-submit {
-  align-self: flex-start;
-  padding: 1rem 3rem;
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-family: 'Noto Serif SC', serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  cursor: pointer;
-  transition: all 0.5s;
-  position: relative;
-  overflow: hidden;
-}
-.form-submit::before {
-  content: ''; position: absolute; inset: 0;
+  width: 100%;
+  padding: 1rem;
   background: var(--gold);
-  transform: translateX(-101%);
-  transition: transform 0.5s;
+  color: var(--deep-teal);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-.form-submit:hover::before { transform: translateX(0); }
-.form-submit:hover { color: var(--deep-teal); }
-.form-submit span { position: relative; z-index: 1; }
+.form-submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--deep-teal);
-  padding: 3rem;
+  background: var(--teal);
+  padding: 3rem 2rem;
   text-align: center;
   border-top: 1px solid rgba(196, 163, 90, 0.1);
 }
@@ -689,85 +884,106 @@ section { position: relative; z-index: 1; }
   margin-bottom: 1rem;
 }
 .footer-text {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--cream);
-  opacity: 0.4;
-  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--gold);
 }
 
-/* ===== SCROLL ANIMATIONS ===== */
+/* ===== FLOATING CTA ===== */
+.floating-cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+.floating-wechat {
+  background: #07c160;
+  color: white;
+}
+.floating-phone {
+  background: var(--gold);
+  color: var(--deep-teal);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav-links { 
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 46, 46, 0.98);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .nav-cta { display: none; }
+  
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat-value { font-size: 1.8rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  
+  section { padding: 4rem 1.5rem; }
+  
+  .teacher-grid { grid-template-columns: 1fr; }
+  .teacher-image { aspect-ratio: 16/9; }
+  
+  .contact-grid { grid-template-columns: 1fr; }
+  
+  .floating-cta { bottom: 1rem; right: 1rem; }
+  .floating-btn { width: 50px; height: 50px; font-size: 1.2rem; }
+}
+
+/* ===== ANIMATIONS ===== */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-/* ===== INK REVEAL EFFECT ===== */
-.ink-reveal {
-  position: relative;
-  overflow: hidden;
-}
-.ink-reveal::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--deep-teal);
-  transform-origin: left;
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-}
-.ink-reveal.visible::before {
-  transform: scaleX(0);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .instruments-showcase { grid-template-columns: repeat(2, 1fr); }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .gallery-masonry { columns: 2; }
-}
-@media (max-width: 768px) {
-  .nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .nav-toggle { display: block; }
-  .nav-links.open {
-    display: flex; flex-direction: column;
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 46, 46, 0.98);
-    align-items: center; justify-content: center;
-    gap: 2rem; z-index: 999;
-  }
-  .nav-links.open a { font-size: 1.2rem; }
-  .section-pad { padding: 5rem 1.5rem; }
-  .teachers-grid { grid-template-columns: 1fr; max-width: 400px; }
-  .instruments-showcase { grid-template-columns: 1fr 1fr; }
-  .gallery-masonry { columns: 1; padding: 0 1.5rem; }
-  .testimonial-card { min-width: 300px; padding: 2rem; }
-  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-}
-@media (max-width: 480px) {
-  .hero-title { font-size: 2.5rem; }
-  .instruments-showcase { grid-template-columns: 1fr; }
-}
-
-/* ===== CURSOR GLOW ===== */
-.cursor-glow {
-  position: fixed;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(196, 163, 90, 0.06), transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s;
 }
 </style>
 </head>
@@ -775,429 +991,537 @@ section { position: relative; z-index: 1; }
 
 <!-- Loading Screen -->
 <div class="loader" id="loader">
-  <div class="loader-ring" style="position:relative;"></div>
+  <div class="loader-ring"></div>
 </div>
-
-<!-- Cursor Glow -->
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- Particle Canvas -->
-<canvas id="particles"></canvas>
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">月泉国乐</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">关于</a></li>
-    <li><a href="#teachers">师资</a></li>
-    <li><a href="#instruments">乐器</a></li>
-    <li><a href="#gallery">风采</a></li>
-    <li><a href="#contact">联系</a></li>
+    <li><a href="#teachers">师资团队</a></li>
+    <li><a href="#achievements">教学成果</a></li>
+    <li><a href="#courses">课程价格</a></li>
+    <li><a href="#environment">教学环境</a></li>
+    <li><a href="#testimonials">家长评价</a></li>
+    <li><a href="#contact">联系我们</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="菜单">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-cta">免费试听</a>
+  <button class="nav-toggle" id="navToggle">☰</button>
 </nav>
 
 <!-- Hero Section -->
-<section class="hero" id="hero">
+<section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-mountains" id="parallaxMountains"></div>
-  <div class="ink-float" style="width:400px;height:400px;background:var(--jade);top:10%;left:-10%;animation-delay:-5s;"></div>
-  <div class="ink-float" style="width:300px;height:300px;background:var(--gold);bottom:20%;right:-5%;animation-delay:-12s;opacity:0.05;"></div>
-  <div class="ink-float" style="width:200px;height:200px;background:var(--malachite);top:40%;right:20%;animation-delay:-8s;"></div>
+  <div class="hero-pattern"></div>
   <div class="hero-content">
-    <div class="hero-subtitle-top">YUEQUAN CHINESE MUSIC</div>
-    <h1 class="hero-title">
-      月泉国乐馆
-      <span class="accent">传承千年雅韵 · 培育国乐新星</span>
-    </h1>
-    <div class="hero-divider"></div>
-    <p class="hero-desc">以专业之姿，传民族之音<br>让每一个音符都承载文化的重量</p>
-    <a href="#teachers" class="hero-cta"><span>探索师资团队</span></a>
-  </div>
-  <div class="hero-scroll">
-    <span>SCROLL</span>
-    <div class="hero-scroll-line"></div>
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="about section-pad" id="about">
-  <div class="section-header reveal">
-    <div class="section-num">壹</div>
-    <h2 class="section-title">关于月泉</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">ABOUT YUEQUAN</p>
-  </div>
-  <div class="about-grid">
-    <div class="about-image-wrap ink-reveal reveal">
-      <img src="photo_22.jpg" alt="月泉国乐馆" class="about-image">
+    <div class="hero-badge">广州专业民族音乐教育</div>
+    <h1>让孩子爱上<span>国乐</span><br>从一节免费试听开始</h1>
+    <p class="hero-subtitle">专业院校师资 · 因材施教 · 考级比赛成绩优异</p>
+    
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">10+</div>
+        <div class="hero-stat-label">专业教师</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">500+</div>
+        <div class="hero-stat-label">在读学员</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">98%</div>
+        <div class="hero-stat-label">考级通过率</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">13年</div>
+        <div class="hero-stat-label">教学经验</div>
+      </div>
     </div>
-    <div class="about-text reveal reveal-delay-2">
-      <h3>弦歌不辍 · 薪火相传</h3>
-      <p>月泉国乐馆坐落于广州，是一所以民族音乐教育为核心的专业艺术机构。我们汇聚了一批毕业于专业音乐院校的优秀教师，致力于传承和弘扬中国传统音乐文化。</p>
-      <p>从古琴的深沉到琵琶的灵动，从二胡的婉转到古筝的悠扬，每一种乐器都承载着千年的文化积淀。在这里，我们不仅教授技艺，更传递一种对美的感知与追求。</p>
-      <div class="about-stats">
-        <div class="reveal reveal-delay-1">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">专业教师</div>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="stat-num">8</div>
-          <div class="stat-label">乐器种类</div>
-        </div>
-        <div class="reveal reveal-delay-3">
-          <div class="stat-num">500+</div>
-          <div class="stat-label">在读学员</div>
-        </div>
+    
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">🎵 预约免费试听</a>
+      <a href="#teachers" class="btn-secondary">了解师资 →</a>
+    </div>
+    
+    <div class="hero-trust">
+      <div class="hero-trust-text">学员考级机构 · 比赛指定培训点</div>
+      <div class="hero-trust-logos">
+        <span>中国音乐学院考级</span>
+        <span>中央音乐学院考级</span>
+        <span>星耀杯优秀培训单位</span>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div>
+      <div class="trust-item-value">8</div>
+      <div class="trust-item-label">种乐器课程</div>
+    </div>
+    <div>
+      <div class="trust-item-value">50+</div>
+      <div class="trust-item-label">场比赛获奖</div>
+    </div>
+    <div>
+      <div class="trust-item-value">100%</div>
+      <div class="trust-item-label">教师持证上岗</div>
+    </div>
+    <div>
+      <div class="trust-item-value">4.9</div>
+      <div class="trust-item-label">家长满意度</div>
+    </div>
+  </div>
+</div>
 
 <!-- Teachers Section -->
-<section class="teachers section-pad" id="teachers">
-  <div class="section-header reveal">
-    <div class="section-num">贰</div>
-    <h2 class="section-title">师资团队</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">OUR TEACHERS</p>
-  </div>
-  <div class="teachers-grid">
+<section class="teachers-section" id="teachers">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">OUR TEACHERS</div>
+      <h2 class="section-title">专业师资团队</h2>
+      <p class="section-subtitle">全部毕业于专业音乐院校，平均教龄10年以上</p>
+    </div>
+    
+    <!-- Featured Teacher: 陈卓 -->
     <div class="teacher-card reveal">
-      <img src="photo_17.jpg" alt="二胡教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">陈卓</div>
-        <div class="teacher-instrument">二胡 · ERHU</div>
-        <div class="teacher-bio">毕业于专业音乐院校，师承名家，多年教学经验。擅长传统曲目与现代创作，教学风格严谨而富有感染力。</div>
+      <div class="teacher-grid">
+        <div class="teacher-image">
+          <img src="photo_17.jpg" alt="陈卓老师">
+        </div>
+        <div class="teacher-info">
+          <h3 class="teacher-name">陈卓</h3>
+          <div class="teacher-instrument">二胡 · ERHU</div>
+          <div class="teacher-tags">
+            <span class="teacher-tag">武汉音乐学院</span>
+            <span class="teacher-tag">文华奖最高奖</span>
+            <span class="teacher-tag">13年教龄</span>
+          </div>
+          <p class="teacher-bio">
+            自幼跟随白丹老师学习二胡，后师从刘洋老师、别小霞老师。在校期间担任武汉音乐学院东方中乐团二胡声部演奏。2017年获得文华奖组合展演最高奖。教学注重基本功训练，擅长根据学生特点制定个性化教学计划。
+          </p>
+          <div class="teacher-achievements">
+            <div class="teacher-achievement">文华奖全国民族器乐展演最高奖（2017）</div>
+            <div class="teacher-achievement">星耀杯全国才艺选拔优秀指导老师</div>
+            <div class="teacher-achievement">中国少儿小金钟优秀指导老师</div>
+            <div class="teacher-achievement">中新国际音乐比赛优秀指导老师</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="teacher-card reveal reveal-delay-1">
-      <img src="photo_26.jpg" alt="琵琶教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">琵琶教师</div>
-        <div class="teacher-instrument">琵琶 · PIPA</div>
-        <div class="teacher-bio">精通文武曲风，演奏风格细腻典雅。注重基本功训练与音乐表现力的培养，深受学员喜爱。</div>
+    
+    <!-- Other Teachers Grid -->
+    <div class="courses-grid" style="margin-top: 2rem;">
+      <div class="teacher-card reveal" style="margin-bottom: 0;">
+        <div class="teacher-image" style="aspect-ratio: 1;">
+          <img src="photo_26.jpg" alt="琵琶教师">
+        </div>
+        <div class="teacher-info" style="padding: 1.5rem;">
+          <h3 class="teacher-name" style="font-size: 1.3rem;">李老师</h3>
+          <div class="teacher-instrument">琵琶 · PIPA</div>
+          <div class="teacher-tags">
+            <span class="teacher-tag">专业院校</span>
+            <span class="teacher-tag">10年教龄</span>
+          </div>
+          <p class="teacher-bio" style="font-size: 0.85rem;">精通文武曲风，注重基本功训练与音乐表现力培养。</p>
+        </div>
       </div>
-    </div>
-    <div class="teacher-card reveal reveal-delay-2">
-      <img src="photo_8.jpg" alt="古筝教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">古筝教师</div>
-        <div class="teacher-instrument">古筝 · GUZHENG</div>
-        <div class="teacher-bio">擅长各流派筝曲，教学经验丰富。注重因材施教，帮助学员在轻松愉悦的氛围中掌握演奏技巧。</div>
+      
+      <div class="teacher-card reveal" style="margin-bottom: 0;">
+        <div class="teacher-image" style="aspect-ratio: 1;">
+          <img src="photo_8.jpg" alt="古筝教师">
+        </div>
+        <div class="teacher-info" style="padding: 1.5rem;">
+          <h3 class="teacher-name" style="font-size: 1.3rem;">王老师</h3>
+          <div class="teacher-instrument">古筝 · GUZHENG</div>
+          <div class="teacher-tags">
+            <span class="teacher-tag">专业院校</span>
+            <span class="teacher-tag">8年教龄</span>
+          </div>
+          <p class="teacher-bio" style="font-size: 0.85rem;">擅长各流派筝曲，教学经验丰富，因材施教。</p>
+        </div>
       </div>
-    </div>
-    <div class="teacher-card reveal reveal-delay-3">
-      <img src="photo_11.jpg" alt="二胡教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">二胡教师</div>
-        <div class="teacher-instrument">二胡 · ERHU</div>
-        <div class="teacher-bio">青年二胡演奏家，技艺精湛。善于将传统技法与现代审美融合，激发学员对民族音乐的热爱。</div>
-      </div>
-    </div>
-    <div class="teacher-card reveal">
-      <img src="photo_4.jpg" alt="琵琶教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">琵琶教师</div>
-        <div class="teacher-instrument">琵琶 · PIPA</div>
-        <div class="teacher-bio">身着汉服的琵琶演奏者，气质典雅。注重传统美学教育，让学员在琴声中感受中华文化之美。</div>
-      </div>
-    </div>
-    <div class="teacher-card reveal reveal-delay-1">
-      <img src="photo_10.jpg" alt="古筝教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">古筝教师</div>
-        <div class="teacher-instrument">古筝 · GUZHENG</div>
-        <div class="teacher-bio">温婉典雅的古筝演奏者，指尖流淌的是千年的诗意。教学耐心细致，深受各年龄段学员欢迎。</div>
-      </div>
-    </div>
-    <div class="teacher-card reveal reveal-delay-2">
-      <img src="photo_27.jpg" alt="中阮教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">中阮教师</div>
-        <div class="teacher-instrument">中阮 · RUAN</div>
-        <div class="teacher-bio">中阮演奏音色圆润醇厚，教学风格亲和。致力于推广这一古老而优美的民族乐器。</div>
-      </div>
-    </div>
-    <div class="teacher-card reveal reveal-delay-3">
-      <img src="photo_15.jpg" alt="古琴教师" class="teacher-card-img">
-      <div class="teacher-card-overlay">
-        <div class="teacher-card-line"></div>
-        <div class="teacher-name">古琴教师</div>
-        <div class="teacher-instrument">古琴 · GUQIN</div>
-        <div class="teacher-bio">古琴艺术传承者，琴风古朴典雅。在琴棋书画的熏陶中，引导学员体会中国传统文人的精神境界。</div>
+      
+      <div class="teacher-card reveal" style="margin-bottom: 0;">
+        <div class="teacher-image" style="aspect-ratio: 1;">
+          <img src="photo_15.jpg" alt="古琴教师">
+        </div>
+        <div class="teacher-info" style="padding: 1.5rem;">
+          <h3 class="teacher-name" style="font-size: 1.3rem;">张老师</h3>
+          <div class="teacher-instrument">古琴 · GUQIN</div>
+          <div class="teacher-tags">
+            <span class="teacher-tag">专业院校</span>
+            <span class="teacher-tag">12年教龄</span>
+          </div>
+          <p class="teacher-bio" style="font-size: 0.85rem;">古琴艺术传承者，琴风古朴典雅。</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Instruments Section -->
-<section class="instruments section-pad" id="instruments">
-  <div class="section-header reveal">
-    <div class="section-num">叁</div>
-    <h2 class="section-title">开设课程</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">OUR COURSES</p>
-  </div>
-  <div class="instruments-showcase">
-    <div class="instrument-item reveal">
-      <span class="instrument-icon">🎻</span>
-      <div class="instrument-name">二胡</div>
-      <div class="instrument-en">Erhu</div>
-      <div class="instrument-desc">两根弦上的千年诉说，婉转悠扬</div>
+<!-- Achievements Section -->
+<section class="achievements-section" id="achievements">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">ACHIEVEMENTS</div>
+      <h2 class="section-title">教学成果</h2>
+      <p class="section-subtitle">用数据说话，学员成绩是最好的证明</p>
     </div>
-    <div class="instrument-item reveal reveal-delay-1">
-      <span class="instrument-icon">🪕</span>
-      <div class="instrument-name">琵琶</div>
-      <div class="instrument-en">Pipa</div>
-      <div class="instrument-desc">大珠小珠落玉盘，文武兼备</div>
+    
+    <div class="achievements-grid">
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-value">98%</div>
+        <div class="achievement-label">考级通过率</div>
+        <div class="achievement-detail">远超行业平均水平</div>
+      </div>
+      
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">🥇</div>
+        <div class="achievement-value">50+</div>
+        <div class="achievement-label">学员获奖</div>
+        <div class="achievement-detail">全国及国际比赛</div>
+      </div>
+      
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">📜</div>
+        <div class="achievement-value">200+</div>
+        <div class="achievement-label">考级证书</div>
+        <div class="achievement-detail">每年稳定输出</div>
+      </div>
+      
+      <div class="achievement-card reveal">
+        <div class="achievement-icon">🎭</div>
+        <div class="achievement-value">30+</div>
+        <div class="achievement-label">登台演出</div>
+        <div class="achievement-detail">年度汇报音乐会</div>
+      </div>
     </div>
-    <div class="instrument-item reveal reveal-delay-2">
-      <span class="instrument-icon"></span>
-      <div class="instrument-name">古筝</div>
-      <div class="instrument-en">Guzheng</div>
-      <div class="instrument-desc">二十一弦柱柱思，流水高山</div>
-    </div>
-    <div class="instrument-item reveal reveal-delay-3">
-      <span class="instrument-icon">🎶</span>
-      <div class="instrument-name">古琴</div>
-      <div class="instrument-en">Guqin</div>
-      <div class="instrument-desc">七弦琴上见古今，文人雅器</div>
-    </div>
-    <div class="instrument-item reveal">
-      <span class="instrument-icon">🎼</span>
-      <div class="instrument-name">中阮</div>
-      <div class="instrument-en">Ruan</div>
-      <div class="instrument-desc">圆润醇厚，古韵悠长</div>
-    </div>
-    <div class="instrument-item reveal reveal-delay-1">
-      <span class="instrument-icon">🎋</span>
-      <div class="instrument-name">竹笛</div>
-      <div class="instrument-en">Dizi</div>
-      <div class="instrument-desc">竹韵清风，悠扬婉转</div>
-    </div>
-    <div class="instrument-item reveal reveal-delay-2">
-      <span class="instrument-icon"></span>
-      <div class="instrument-name">扬琴</div>
-      <div class="instrument-en">Yangqin</div>
-      <div class="instrument-desc">琴竹飞舞，清脆明亮</div>
-    </div>
-    <div class="instrument-item reveal reveal-delay-3">
-      <span class="instrument-icon"></span>
-      <div class="instrument-name">声乐</div>
-      <div class="instrument-en">Vocal</div>
-      <div class="instrument-desc">民族唱法，声情并茂</div>
+    
+    <div style="margin-top: 3rem; text-align: center;" class="reveal">
+      <p style="color: var(--gold-pale); font-size: 0.9rem; margin-bottom: 1rem;">部分学员获奖展示</p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <span style="background: rgba(196,163,90,0.15); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.8rem;">星耀杯金奖 3人</span>
+        <span style="background: rgba(196,163,90,0.15); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.8rem;">小金钟银奖 5人</span>
+        <span style="background: rgba(196,163,90,0.15); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.8rem;">粤港澳大湾区展演优秀奖 8人</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Gallery Section -->
-<section class="gallery" id="gallery">
-  <div class="section-header reveal" style="padding: 0 3rem;">
-    <div class="section-num">肆</div>
-    <h2 class="section-title">艺术风采</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">GALLERY</p>
+<!-- Courses & Pricing Section -->
+<section class="courses-section" id="courses">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">COURSES & PRICING</div>
+      <h2 class="section-title">课程与价格</h2>
+      <p class="section-subtitle">透明定价，多种课时包可选</p>
+    </div>
+    
+    <div class="courses-grid">
+      <div class="course-card reveal">
+        <div class="course-icon">🎻</div>
+        <div class="course-name">二胡</div>
+        <div class="course-english">ERHU</div>
+        <div class="course-desc">两根弦上的千年诉说，婉转悠扬。适合5岁以上学员。</div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-icon">🪕</div>
+        <div class="course-name">琵琶</div>
+        <div class="course-english">PIPA</div>
+        <div class="course-desc">大珠小珠落玉盘，文武兼备。适合6岁以上学员。</div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-icon">🎶</div>
+        <div class="course-name">古筝</div>
+        <div class="course-english">GUZHENG</div>
+        <div class="course-desc">二十一弦柱柱思，流水高山。适合5岁以上学员。</div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-icon">🎼</div>
+        <div class="course-name">古琴</div>
+        <div class="course-english">GUQIN</div>
+        <div class="course-desc">七弦琴上见古今，文人雅器。适合8岁以上学员。</div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-icon">🎵</div>
+        <div class="course-name">中阮</div>
+        <div class="course-english">RUAN</div>
+        <div class="course-desc">圆润醇厚，古韵悠长。适合7岁以上学员。</div>
+      </div>
+      <div class="course-card reveal">
+        <div class="course-icon">🎋</div>
+        <div class="course-name">竹笛</div>
+        <div class="course-english">DIZI</div>
+        <div class="course-desc">竹韵清风，悠扬婉转。适合6岁以上学员。</div>
+      </div>
+    </div>
+    
+    <div class="pricing-header reveal">
+      <h3 class="pricing-title">课时价格</h3>
+      <p style="color: var(--cream); opacity: 0.7; font-size: 0.9rem;">新生报名享8折优惠</p>
+    </div>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-name">体验课</div>
+        <div class="pricing-price">免费</div>
+        <div class="pricing-unit">1节课</div>
+        <ul class="pricing-features">
+          <li>专业测评</li>
+          <li>试听体验</li>
+          <li>学习规划</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card featured reveal">
+        <div class="pricing-name">学期卡</div>
+        <div class="pricing-price">¥3,800</div>
+        <div class="pricing-unit">16节课 / 学期</div>
+        <ul class="pricing-features">
+          <li>每节237元</li>
+          <li>4个月有效期</li>
+          <li>可请假补课</li>
+          <li>定期汇报演出</li>
+        </ul>
+      </div>
+      
+      <div class="pricing-card reveal">
+        <div class="pricing-name">年卡</div>
+        <div class="pricing-price">¥6,800</div>
+        <div class="pricing-unit">32节课 / 年</div>
+        <ul class="pricing-features">
+          <li>每节212元</li>
+          <li>12个月有效期</li>
+          <li>赠送2节课</li>
+          <li>优先参加比赛</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--cream); opacity: 0.6;" class="reveal">
+      * 以上为一对一课程价格，小班课程价格另询 | 具体价格以到店咨询为准
+    </p>
   </div>
-  <div class="gallery-masonry">
-    <div class="gallery-item reveal"><img src="photo_22.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-1"><img src="photo_26.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-2"><img src="photo_19.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal"><img src="photo_14.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-1"><img src="photo_17.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-2"><img src="photo_8.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal"><img src="photo_4.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-1"><img src="photo_10.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-2"><img src="photo_27.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal"><img src="photo_15.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-1"><img src="photo_11.jpg" alt="艺术风采" loading="lazy"></div>
-    <div class="gallery-item reveal reveal-delay-2"><img src="photo_1.jpg" alt="艺术风采" loading="lazy"></div>
+</section>
+
+<!-- Environment Section -->
+<section class="environment-section" id="environment">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">ENVIRONMENT</div>
+      <h2 class="section-title">教学环境</h2>
+      <p class="section-subtitle">专业教室，舒适学习环境</p>
+    </div>
+    
+    <div class="env-grid">
+      <div class="env-item reveal">
+        <img src="photo_22.jpg" alt="教室环境">
+        <div class="env-item-overlay">
+          <div class="env-item-label">专业教室</div>
+        </div>
+      </div>
+      <div class="env-item reveal">
+        <img src="photo_19.jpg" alt="教学现场">
+        <div class="env-item-overlay">
+          <div class="env-item-label">一对一教学</div>
+        </div>
+      </div>
+      <div class="env-item reveal">
+        <img src="photo_14.jpg" alt="学员上课">
+        <div class="env-item-overlay">
+          <div class="env-item-label">学员课堂</div>
+        </div>
+      </div>
+      <div class="env-item reveal">
+        <img src="photo_4.jpg" alt="演出舞台">
+        <div class="env-item-overlay">
+          <div class="env-item-label">汇报演出</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Testimonials Section -->
-<section class="testimonials section-pad" id="testimonials">
-  <div class="section-header reveal">
-    <div class="section-num">伍</div>
-    <h2 class="section-title">学员心声</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">TESTIMONIALS</p>
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">TESTIMONIALS</div>
+      <h2 class="section-title">家长评价</h2>
+      <p class="section-subtitle">听听其他家长怎么说</p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">孩子在这里学习古筝两年，不仅技艺进步很大，更重要的是培养了对传统文化的兴趣和审美。老师们非常专业且有耐心，每次上课都是一种享受。</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">王</div>
+          <div>
+            <div class="testimonial-name">王妈妈</div>
+            <div class="testimonial-role">学员家长 · 学习2年</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">作为一名成人学员，从零开始学习二胡。陈老师的教学方法很适合成年人，循序渐进，让我在短时间内就能演奏简单的曲目。非常推荐！</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">李</div>
+          <div>
+            <div class="testimonial-name">李先生</div>
+            <div class="testimonial-role">成人学员 · 学习8个月</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">女儿在这里学了三年古筝，已经通过了业余八级考试。感谢月泉老师们的悉心教导，让她在音乐中找到自信和快乐。强烈推荐给各位家长！</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">陈</div>
+          <div>
+            <div class="testimonial-name">陈妈妈</div>
+            <div class="testimonial-role">学员家长 · 学习3年</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="testimonials-track">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">孩子在这里学习古筝两年，不仅技艺进步很大，更重要的是培养了对传统文化的兴趣和审美。老师们非常专业且有耐心。</p>
-      <div class="testimonial-author">王妈妈</div>
-      <div class="testimonial-role">学员家长</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">作为一名成人学员，从零开始学习二胡。老师的教学方法很适合成年人，循序渐进，让我在短时间内就能演奏简单的曲目。</p>
-      <div class="testimonial-author">李先生</div>
-      <div class="testimonial-role">成人学员</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">月泉的学习氛围特别好，每次上课都是一种享受。琵琶老师不仅教技法，还会讲解曲目背后的文化故事，让学习更有深度。</p>
-      <div class="testimonial-author">张同学</div>
-      <div class="testimonial-role">琵琶学员</div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-3">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">女儿在这里学了三年古筝，已经通过了业余八级考试。感谢月泉老师们的悉心教导，让她在音乐中找到自信和快乐。</p>
-      <div class="testimonial-author">陈妈妈</div>
-      <div class="testimonial-role">学员家长</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container reveal">
+    <h2 class="cta-title">为孩子预约一节免费试听课</h2>
+    <p class="cta-subtitle">专业测评 + 试听体验 + 学习规划，让孩子感受国乐的魅力</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn-primary">🎵 立即预约</a>
+      <a href="https://work.weixin.qq.com/" class="btn-secondary" target="_blank">微信咨询</a>
     </div>
   </div>
 </section>
 
 <!-- Contact Section -->
-<section class="contact section-pad" id="contact">
-  <div class="section-header reveal">
-    <div class="section-num">陆</div>
-    <h2 class="section-title">联系我们</h2>
-    <div class="section-line"></div>
-    <p class="section-subtitle">CONTACT US</p>
-  </div>
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <h3>期待与您相遇</h3>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-label">地址</div>
-          <div class="contact-value">广州市</div>
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">CONTACT US</div>
+      <h2 class="section-title">联系我们</h2>
+      <p class="section-subtitle">欢迎咨询课程详情与预约试听</p>
+    </div>
+    
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">地址</div>
+            <div class="contact-value">广州市天河区体育西路50号</div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">微信咨询</div>
+            <div class="contact-value">yuequanguoyue</div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">营业时间</div>
+            <div class="contact-value">周一至周日 9:00 - 21:00</div>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🎵</div>
+          <div>
+            <div class="contact-label">免费试听</div>
+            <div class="contact-value">预约即可享受一节免费体验课</div>
+          </div>
+        </div>
+        
+        <div class="contact-qr">
+          <div class="contact-qr-placeholder">微信二维码<br>待添加</div>
+          <div class="contact-qr-label">扫码添加微信，立即咨询</div>
         </div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div>
-          <div class="contact-label">微信咨询</div>
-          <div class="contact-value">yuequanguoyue</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🕐</div>
-        <div>
-          <div class="contact-label">营业时间</div>
-          <div class="contact-value">周一至周日 9:00 - 21:00</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🎵</div>
-        <div>
-          <div class="contact-label">免费试听</div>
-          <div class="contact-value">预约即可享受一节免费体验课</div>
-        </div>
+      
+      <div class="contact-form reveal">
+        <h3 class="form-title">预约免费试听</h3>
+        <form id="trialForm">
+          <div class="form-group">
+            <label class="form-label">学员姓名 *</label>
+            <input type="text" class="form-input" placeholder="请输入学员姓名" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">联系电话 *</label>
+            <input type="tel" class="form-input" placeholder="请输入手机号码" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">学员年龄</label>
+            <input type="number" class="form-input" placeholder="请输入学员年龄" min="3" max="80">
+          </div>
+          <div class="form-group">
+            <label class="form-label">想学习的乐器</label>
+            <select class="form-input">
+              <option value="">请选择</option>
+              <option value="erhu">二胡</option>
+              <option value="pipa">琵琶</option>
+              <option value="guzheng">古筝</option>
+              <option value="guqin">古琴</option>
+              <option value="ruan">中阮</option>
+              <option value="dizi">竹笛</option>
+              <option value="other">其他 / 不确定</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">备注</label>
+            <textarea class="form-input" placeholder="如有特殊需求请说明"></textarea>
+          </div>
+          <button type="submit" class="form-submit">提交预约</button>
+        </form>
       </div>
     </div>
-    <form class="contact-form reveal reveal-delay-2" onsubmit="return false;">
-      <div class="form-group">
-        <input type="text" placeholder=" " required>
-        <label>您的姓名</label>
-      </div>
-      <div class="form-group">
-        <input type="tel" placeholder=" " required>
-        <label>联系电话</label>
-      </div>
-      <div class="form-group">
-        <input type="text" placeholder=" ">
-        <label>想学习的乐器</label>
-      </div>
-      <div class="form-group">
-        <textarea placeholder=" " rows="3"></textarea>
-        <label>留言</label>
-      </div>
-      <button type="submit" class="form-submit"><span>预约试听</span></button>
-    </form>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-logo">月泉国乐馆</div>
-  <div class="footer-text">© 2024 月泉国乐馆 · 传承千年雅韵</div>
+  <div class="footer-text">© 2024 月泉国乐馆 · 传承千年雅韵 · 培育国乐新星</div>
+  <div class="footer-links">
+    <a href="#teachers">师资团队</a>
+    <a href="#courses">课程价格</a>
+    <a href="#contact">联系我们</a>
+    <a href="https://yuequanguan.com/" target="_blank">官网</a>
+  </div>
 </footer>
+
+<!-- Floating CTA -->
+<div class="floating-cta">
+  <a href="https://work.weixin.qq.com/" class="floating-btn floating-wechat" target="_blank" title="微信咨询">💬</a>
+  <a href="tel:" class="floating-btn floating-phone" title="电话咨询">📞</a>
+</div>
 
 <script>
 // ===== LOADER =====
 window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 800);
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 800);
 });
-
-// ===== PARTICLES =====
-(function() {
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let w, h, particles = [];
-  const PARTICLE_COUNT = 40;
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * w;
-      this.y = Math.random() * h;
-      this.size = Math.random() * 2 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.3;
-      this.speedY = (Math.random() - 0.5) * 0.3;
-      this.opacity = Math.random() * 0.3 + 0.1;
-      this.gold = Math.random() > 0.7;
-    }
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-      if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) this.reset();
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = this.gold
-        ? `rgba(196, 163, 90, ${this.opacity})`
-        : `rgba(77, 184, 158, ${this.opacity * 0.5})`;
-      ctx.fill();
-    }
-  }
-
-  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
-
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
-
-// ===== CURSOR GLOW =====
-(function() {
-  const glow = document.getElementById('cursorGlow');
-  let mx = 0, my = 0, gx = 0, gy = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function update() {
-    gx += (mx - gx) * 0.08;
-    gy += (my - gy) * 0.08;
-    glow.style.left = gx + 'px';
-    glow.style.top = gy + 'px';
-    requestAnimationFrame(update);
-  }
-  update();
-})();
 
 // ===== NAV SCROLL =====
 (function() {
@@ -1215,15 +1539,6 @@ window.addEventListener('load', () => {
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 })();
 
-// ===== PARALLAX =====
-(function() {
-  const mountains = document.getElementById('parallaxMountains');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (mountains) mountains.style.transform = `translateY(${y * 0.3}px)`;
-  });
-})();
-
 // ===== SCROLL REVEAL =====
 (function() {
   const observer = new IntersectionObserver((entries) => {
@@ -1234,7 +1549,7 @@ window.addEventListener('load', () => {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.reveal, .ink-reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();
 
 // ===== SMOOTH ANCHOR SCROLL =====
@@ -1244,6 +1559,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+});
+
+// ===== FORM SUBMIT =====
+document.getElementById('trialForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('预约已提交！我们将在24小时内与您联系确认试听时间。');
+  this.reset();
 });
 </script>
 </body>
